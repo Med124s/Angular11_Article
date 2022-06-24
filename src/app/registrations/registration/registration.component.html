@@ -1,0 +1,79 @@
+<!-- <div class="container mt-5">
+    <div class="row">
+        <div class="col-sm-10">
+            <app-paths></app-paths>
+        </div>
+        <div class="col-sm-2">
+            <div style="gap:8px" class="callendar d-flex align-items-center">
+                <img class="img-fluid" style="width:24%" src="assets/images/callendar.png" alt="callendar" />
+                <span>{{thisYear |date:'YYYY'}}/{{nextYear}}</span>
+            </div>
+        </div>
+    </div>
+
+    <app-table [title]="title" (page)="getRegisters($event)" (refrech)="onRefrech()" [rows]="rows" [temp]="temp" [columns]="columns" [total]="totalPages" [currentPage]="pageNumber" [elements]="totalElement"></app-table>
+
+    <!--
+    <div class="table-registration mt-4">
+        <mat-card>
+            <div class="body">
+                <div class="table-responsive">
+                    <div class="materialTableHeader">
+                        <div class="row">
+                            <div class="col-8">
+                                <ul class="d-flex align-items-center" style="gap:20px">
+                                    <li>
+                                        <h5>Registrations</h5>
+                                    </li>
+                                    <li>
+                                        <input (keyup)="filterRegistration($event)" style="font-size:15px" ngModel name="search" placeholder="Search" class="search" type="text" />
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-4">
+                                <ul class="header-buttons">
+                                    <li>
+                                        <div class="icon-btn-demo">
+                                            <button (click)="addStudent()" class="mr-1" color="primary" mat-mini-fab>
+                                                <mat-icon aria-hidden="false">add</mat-icon>
+                                            </button>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="icon-btn-demo">
+                                            <button color="primary" mat-mini-fab>
+                                                <mat-icon id="#refrech" (click)="refrech()" aria-hidden="false">refresh </mat-icon>
+                                            </button>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mat-elevation-z8">
+                    <ngx-datatable [selectCheck]="checkSelectable" [selectionType]="SelectionType.multi" (select)="onSelect($event)" [selected]="selected" class="material" [rows]="rows" rowHeight="auto" [headerHeight]="50" [externalPaging]="true" [footerHeight]="50" [limit]="pageSize"
+                            [columnMode]="ColumnMode.force" [externalPaging]="true" [columns]="columns" [count]="totalElement" (page)="getRegisters($event)" [offset]="pageNumber" [reorderable]="reorderable">
+                            <ng-container *ngFor='let column of columns'>
+                                <ngx-datatable-column *ngIf='column.name === "Actions"' name="{{column.name}}" prop="{{column.prop}}">
+                                    <ng-template let-value="value" let-row="row" ngx-datatable-cell-template>
+                                        <span>
+                                            <button (dblclick)="test($event)" (click)="test($event)" class="btn btn-primary">
+                                                <i class="fa fa-ban"></i>
+                                              </button>
+                                              <button (dblclick)="test($event)" (click)="test($event)" class="btn btn-primary">
+                                                <i class="fa fa-check"></i>
+                                              </button>
+                                            </span>
+                                    </ng-template>
+                                </ngx-datatable-column>
+                                <ngx-datatable-column *ngIf='column.name !== "Actions"' name="{{column.name}}" prop="{{column.prop}}">
+                                </ngx-datatable-column>
+                            </ng-container>
+                        </ngx-datatable>
+                       
+                    </div>
+                </div>
+            </div>
+        </mat-card>!-->
+</div> -->

@@ -1,0 +1,65 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+main {
+    background: #F0F3FB;
+    height: 100%;
+}
+
+::placeholder {
+    font-size: 14px;
+    letter-spacing: -.5px;
+}
+
+h5 {
+    font-weight: 600;
+    letter-spacing: -.5px;
+    color: #444;
+    font-size: 18px;
+    margin: 0
+}
+
+.search {
+    background-color: #fff;
+    border: none;
+    border-radius: 50px;
+    outline: none;
+    padding: 10px 20px;
+    width: 242px;
+}
+
+.materialTableHeader {
+    background-color: #ebebee;
+    padding: 11px 20px;
+    overflow: initial;
+}
+
+.materialTableHeader li {
+    display: inline-block;
+}
+
+.header-buttons {
+    position: absolute;
+    right: 20px;
+}
+
+.ngx-datatable.material .datatable-header .datatable-header-cell {
+    font-weight: bold!important;
+}
+
+th {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.datatable-body-row.active,
+.datatable-row-group {
+    display: none;
+}

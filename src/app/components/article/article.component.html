@@ -1,0 +1,54 @@
+<app-navbar></app-navbar>
+<main>
+
+    <div class="my-5 container">
+
+        <div class="table-registration mt-4">
+            <mat-card>
+                <div class="body">
+                    <div class="table-responsive">
+                        <div class="materialTableHeader">
+                            <div class="row">
+                                <div class="col-8">
+                                    <ul class="d-flex align-items-center" style="gap:20px">
+                                        <li>
+                                            <h5>All Articles</h5>
+                                        </li>
+                                        <li>
+                                            <input (keyup)="filterArticles($event)" style="font-size:15px" ngModel name="search" placeholder="Search" class="search" type="text" />
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-4">
+                                    <ul class="header-buttons">
+                                        <li>
+                                            <div class="icon-btn-demo">
+                                                <button (click)="addArticle()" class="mr-1" color="primary" mat-mini-fab>
+                                                <mat-icon aria-hidden="false">add</mat-icon>
+                                            </button>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="icon-btn-demo">
+                                                <button color="primary" mat-mini-fab>
+                                                <mat-icon id="#refrech" (click)="refrech()" aria-hidden="false">refresh </mat-icon>
+                                            </button>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mat-elevation-z8">
+                            <ngx-datatable class="material" [selectCheck]="checkSelectable" [selectionType]="SelectionType.multi" (select)="onSelect($event)" [selected]="selected" [limit]="5" [rows]="rows" [rowHeight]="50" [columns]="columns" [columnMode]="'force'" [headerHeight]="50"
+                                [footerHeight]="50">
+                            </ngx-datatable>
+
+                        </div>
+                    </div>
+                </div>
+            </mat-card>
+
+        </div>
+    </div>
+</main>

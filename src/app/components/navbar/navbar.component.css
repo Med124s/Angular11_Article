@@ -1,0 +1,10 @@
+.dropdown-menu.show {
+    display: block;
+    left: -79px!important;
+}
+
+.navbar-nav .active>.nav-link,
+.navbar-brand,
+.nav-link {
+    color: #fff
+}

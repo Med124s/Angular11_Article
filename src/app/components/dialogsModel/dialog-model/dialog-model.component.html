@@ -1,0 +1,65 @@
+<h2 mat-dialog-title>Article details</h2>
+<hr>
+<mat-dialog-content class="mat-typography">
+    <div class="header">
+        <div class="row">
+            <div class="col-6">
+                <p style="margin:0;padding:0">Article Code: {{data[0].code}}</p>
+            </div>
+
+        </div>
+    </div>
+    <form [formGroup]="formGroup" class="example-form">
+        <ng-container *ngIf="data">
+            <div class="row align-items-center">
+                <div class="myInputs col-md-6">
+                    <div class="row">
+
+                        <div class="col-md-6 ">
+                            <mat-form-field class="w-100" appearance="outline">
+                                <mat-label>Title</mat-label>
+                                <input formControlName="title" [readonly]="readOnly" matInput>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-6 ">
+                            <mat-form-field class="w-100" appearance="outline">
+                                <mat-label>Price</mat-label>
+                                <input formControlName="price" [readonly]="readOnly" matInput>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-6 ">
+                            <mat-form-field class="w-100" appearance="outline">
+                                <mat-label>Quantity</mat-label>
+                                <input formControlName="quantity" [readonly]="readOnly" matInput>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-6 ">
+                            <mat-form-field class="w-100" appearance="outline">
+                                <mat-label>Description</mat-label>
+                                <textarea [readonly]="readOnly" formControlName="description" matInput value={{data[0].description}}></textarea>
+                            </mat-form-field>
+                        </div>
+                        <!-- <div class="col-md-12 col-lg-6 ">
+                            <div class="form-group">
+                                <label for="exampleFormControlFile1">Upload Image</label>
+                                <input (change)="onAddImage($event)" formControlName="imageUrl" style="background-color: #eee;" type="file" class="form-control-file" id="exampleFormControlFile1">
+                            </div>
+
+                        </div> -->
+                    </div>
+
+                </div>
+                <div class="photoDetail col-md-6">
+                    <img class="img-thumbnail w-90" src="assets/images/{{data[0].imageUrl}}" alt="article" />
+                </div>
+
+
+            </div>
+        </ng-container>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button color="warn" mat-raised-button mat-dialog-close>Cancel</button>
+    <button type="submit" (click)="update()" mat-raised-button color="primary" [mat-dialog-close]="true">Update</button>
+    <button type="submit" (click)="onDelete()" mat-raised-button color="accent" [mat-dialog-close]="true" cdkFocusInitial>Delete</button>
+</mat-dialog-actions>

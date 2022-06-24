@@ -1,0 +1,50 @@
+<app-navbar></app-navbar>
+<div class="seaction mt-5 row justify-content-center">
+
+    <div class="col-md-9">
+        <div class="row formSearch mb-4">
+            <div class="col-md-9">
+                <form class="form-inline inputSearch ">
+                    <div class="form-group inputSearch mx-sm-3 mb-2">
+                        <input type="text" class="form-control" [(ngModel)]="keyWord" name="keyWord" placeholder="Search">
+                    </div>
+                    <button (click)="searchProduct()" class="btn btn-primary"><span class="fa fa-search"></span></button>
+                    <button (click)="onRefreshProducts()" class="btn btn-warning mx-2"><span class="fa fa-refresh"></span></button>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 my-2" *ngFor="let art of articles">
+                <div (click)="detailArticle()" style="cursor:pointer" class="card">
+                    <img heihg="150" src="assets/images/{{art.imageUrl}}" alt="article" />
+                    <div class="card-body">
+                        <div class="row" style="justify-content: space-evenly">
+                            <div class="info">
+                                <h3 style="margin:0" class="card-title">{{art.title}}</h3>
+                                <h3 class="card-subtitle mb-1 text-muted"><small>{{art.description}}</small></h3>
+                                <span style="font-size:12px" class="badge badge-success">{{art.price | currency}}</span>
+                            </div>
+                            <div class="quantity">
+                                <a>
+                                    <span class="badge bg-warning badge-pill text-white">{{art.quantity}}</span>
+                                    <i class="fa fa-cart-plus mx-1"></i>
+                                </a>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Pagination -->
+        <div *ngIf="totalPages.length > 1 && totalItems>5">
+            <ul class="pagination my-2">
+                <li [ngClass]="{'active':currentPage=== pr}" (click)="switchPage(pr)" *ngFor="let pr of totalPages" class="page-item">
+                    <a style="cursor: pointer" class="page-link">{{pr+1}}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

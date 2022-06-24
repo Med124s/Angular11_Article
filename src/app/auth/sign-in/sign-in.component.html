@@ -1,0 +1,59 @@
+<section class="auth-container">
+    <div class="row auth-main">
+        <div class="col-lg px-0">
+            <div style="background-image: url('/assets/images/sign_in.png')" class="image ">
+            </div>
+        </div>
+
+        <div class="form-section log col-lg">
+            <div class="login">
+                <img class="icon-happy" src="assets/images/signIn.webp" style="width:30% " alt="logo" />
+                <div class="needAccount">
+                    <p class="text-center">Need an account?<a style="text-decoration: underline;" href="#">Sign Up</a></p>
+                </div>
+                <div class="signIn">
+                    <h2 class="mb-3">Sign in</h2>
+                    <form [formGroup]="loginForm" (ngSubmit)="onLogin(loginForm.value)" class="validate-form">
+                        <div class="row">
+                            <div class="col-sm-12 p-0 ">
+                                <mat-form-field class="w-100 dd" appearance="outline">
+                                    <mat-label>userName</mat-label>
+                                    <input formControlName="username" matInput required type="email">
+                                    <mat-error *ngIf="loginForm.get('username').errors?.required" align="end">userName is required</mat-error>
+                                    <mat-icon matSuffix>face</mat-icon>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-12 p-0">
+                                <mat-form-field class="w-100 dd" appearance="outline">
+                                    <mat-label>Password</mat-label>
+                                    <input placeholder="password" required formControlName="password" matInput [type]="hide ? 'password' : 'text'">
+                                    <a style="cursor: pointer;" class="show-pwd-icon" matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                    </a>
+                                    <mat-error *ngIf="loginForm.get('password').errors?.required" align="end">password is required</mat-error>
+                                    <mat-error *ngIf="loginForm.controls['password'].errors?.minlength" align="end">max length 6</mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <div class="form-check px-0">
+                                <mat-checkbox color="primary" style="color:#414244;font-size:13px" class="example-margin">Remember me!</mat-checkbox>
+                            </div>
+                            <a style="font-size: 15px; text-decoration: underline;" class="forget" href="#">Forget password?</a>
+                        </div>
+                        <div class="text-center">
+
+
+                            <button type="submit" [ngClass]="{btnValid:loginForm.invalid}" [disabled]="loginForm.invalid" mat-raised-button class="w-100 py-2 mt-2" color="primary">
+                                <span *ngIf="(state$ | async) === dataStateEnum.LOADING"><img src="assets/images/spinner.gif" style="width:40px;position:absolute;top:6px" alt="spinner"></span>Login</button>
+                            <h1 *ngIf="(state$ | async) === dataStateEnum.ERROR">Username or password is incorrect
+                            </h1>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

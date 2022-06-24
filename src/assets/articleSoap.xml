@@ -1,0 +1,231 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://www.concretepage.com/article-ws" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.concretepage.com/article-ws" targetNamespace="http://www.concretepage.com/article-ws">
+<wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.concretepage.com/article-ws">
+<xs:element name="getArticleByCodeRequest">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="code" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="getArticleByCodeResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="articleInfo" type="tns:articleInfo"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="getImageByCodeRequest">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="code" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="getImageByCodeResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="articleInfo" type="xs:byte"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:complexType name="articleInfo">
+<xs:sequence>
+<xs:element name="code" type="xs:long"/>
+<xs:element name="title" type="xs:string"/>
+<xs:element name="description" type="xs:string"/>
+<xs:element name="price" type="xs:double"/>
+<xs:element name="quantity" type="xs:int"/>
+<xs:element name="imageUrl" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="getAllArticlesRequest">
+<xs:complexType/>
+</xs:element>
+<xs:element name="getAllArticlesResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="articleInfo" type="tns:articleInfo"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:complexType name="serviceStatus">
+<xs:sequence>
+<xs:element name="statusCode" type="xs:string"/>
+<xs:element name="message" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="addArticleRequest">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="title" type="xs:string"/>
+<xs:element name="description" type="xs:string"/>
+<xs:element name="price" type="xs:double"/>
+<xs:element name="quantity" type="xs:int"/>
+<xs:element name="imageUrl" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="addArticleResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="serviceStatus" type="tns:serviceStatus"/>
+<xs:element name="articleInfo" type="tns:articleInfo"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="updateArticleRequest">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="articleInfo" type="tns:articleInfo"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="updateArticleResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="serviceStatus" type="tns:serviceStatus"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="deleteArticleRequest">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="code" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="deleteArticleResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="serviceStatus" type="tns:serviceStatus"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:schema>
+</wsdl:types>
+<wsdl:message name="getArticleByCodeResponse">
+<wsdl:part element="tns:getArticleByCodeResponse" name="getArticleByCodeResponse"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="getImageByCodeRequest">
+<wsdl:part element="tns:getImageByCodeRequest" name="getImageByCodeRequest"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="getImageByCodeResponse">
+<wsdl:part element="tns:getImageByCodeResponse" name="getImageByCodeResponse"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="addArticleResponse">
+<wsdl:part element="tns:addArticleResponse" name="addArticleResponse"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="getAllArticlesResponse">
+<wsdl:part element="tns:getAllArticlesResponse" name="getAllArticlesResponse"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="updateArticleRequest">
+<wsdl:part element="tns:updateArticleRequest" name="updateArticleRequest"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="addArticleRequest">
+<wsdl:part element="tns:addArticleRequest" name="addArticleRequest"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="updateArticleResponse">
+<wsdl:part element="tns:updateArticleResponse" name="updateArticleResponse"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="deleteArticleResponse">
+<wsdl:part element="tns:deleteArticleResponse" name="deleteArticleResponse"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="getArticleByCodeRequest">
+<wsdl:part element="tns:getArticleByCodeRequest" name="getArticleByCodeRequest"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="getAllArticlesRequest">
+<wsdl:part element="tns:getAllArticlesRequest" name="getAllArticlesRequest"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="deleteArticleRequest">
+<wsdl:part element="tns:deleteArticleRequest" name="deleteArticleRequest"> </wsdl:part>
+</wsdl:message>
+<wsdl:portType name="ArticlesPort">
+<wsdl:operation name="getArticleByCode">
+<wsdl:input message="tns:getArticleByCodeRequest" name="getArticleByCodeRequest"> </wsdl:input>
+<wsdl:output message="tns:getArticleByCodeResponse" name="getArticleByCodeResponse"> </wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="getImageByCode">
+<wsdl:input message="tns:getImageByCodeRequest" name="getImageByCodeRequest"> </wsdl:input>
+<wsdl:output message="tns:getImageByCodeResponse" name="getImageByCodeResponse"> </wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="addArticle">
+<wsdl:input message="tns:addArticleRequest" name="addArticleRequest"> </wsdl:input>
+<wsdl:output message="tns:addArticleResponse" name="addArticleResponse"> </wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="getAllArticles">
+<wsdl:input message="tns:getAllArticlesRequest" name="getAllArticlesRequest"> </wsdl:input>
+<wsdl:output message="tns:getAllArticlesResponse" name="getAllArticlesResponse"> </wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="updateArticle">
+<wsdl:input message="tns:updateArticleRequest" name="updateArticleRequest"> </wsdl:input>
+<wsdl:output message="tns:updateArticleResponse" name="updateArticleResponse"> </wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="deleteArticle">
+<wsdl:input message="tns:deleteArticleRequest" name="deleteArticleRequest"> </wsdl:input>
+<wsdl:output message="tns:deleteArticleResponse" name="deleteArticleResponse"> </wsdl:output>
+</wsdl:operation>
+</wsdl:portType>
+<wsdl:binding name="ArticlesPortSoap11" type="tns:ArticlesPort">
+<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="getArticleByCode">
+<soap:operation soapAction=""/>
+<wsdl:input name="getArticleByCodeRequest">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="getArticleByCodeResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="getImageByCode">
+<soap:operation soapAction=""/>
+<wsdl:input name="getImageByCodeRequest">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="getImageByCodeResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="addArticle">
+<soap:operation soapAction=""/>
+<wsdl:input name="addArticleRequest">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="addArticleResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="getAllArticles">
+<soap:operation soapAction=""/>
+<wsdl:input name="getAllArticlesRequest">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="getAllArticlesResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="updateArticle">
+<soap:operation soapAction=""/>
+<wsdl:input name="updateArticleRequest">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="updateArticleResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="deleteArticle">
+<soap:operation soapAction=""/>
+<wsdl:input name="deleteArticleRequest">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="deleteArticleResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:service name="ArticlesPortService">
+<wsdl:port binding="tns:ArticlesPortSoap11" name="ArticlesPortSoap11">
+<soap:address location="http://localhost:8005/soapws"/>
+</wsdl:port>
+</wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,56 @@
+<h2 mat-dialog-title>New Article</h2>
+<hr>
+<mat-dialog-content class="mat-typography">
+
+    <form [formGroup]="formGroup" class="example-form">
+        <ng-container>
+            <div class="row">
+                <div class="col-md-12 col-lg-6  ">
+                    <mat-form-field class="w-100" appearance="outline">
+                        <mat-label>Title</mat-label>
+                        <input formControlName="title" matInput>
+                        <mat-error *ngIf="formGroup.get('title').errors?.required" align="end">Title required</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-12 col-lg-6 ">
+                    <mat-form-field class="w-100" appearance="outline">
+                        <mat-label>Price</mat-label>
+                        <input formControlName="price" matInput>
+                        <mat-error *ngIf="formGroup.get('price').errors?.required" align="end">Price required</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-12 col-lg-6 ">
+                    <mat-form-field class="w-100" appearance="outline">
+                        <mat-label>Quantity</mat-label>
+                        <input formControlName="quantity" matInput>
+                        <mat-error *ngIf="formGroup.get('quantity').errors?.required" align="end">quantity is required</mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-md-12 col-lg-6 ">
+                    <div class="form-group">
+                        <label for="exampleFormControlFile1">Upload Image</label>
+                        <input (change)="onAddImage($event)" style="background-color: #eee;" type="file" class="form-control-file" id="exampleFormControlFile1">
+                    </div>
+
+                </div>
+                <div class="col-md-12 col-lg-6 ">
+                    <mat-form-field class="w-100" appearance="outline">
+                        <mat-label>Description</mat-label>
+                        <textarea formControlName="description" matInput></textarea>
+                        <mat-error *ngIf="formGroup.get('description').errors?.required" align="end">Description required</mat-error>
+
+                    </mat-form-field>
+                </div>
+
+
+
+
+            </div>
+        </ng-container>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions align="start">
+    <button [disabled]="formGroup.invalid" type="submit" (click)="onSubmit()" mat-raised-button color="primary" [mat-dialog-close]="true" cdkFocusInitial>Save</button>
+    <button color="warn" mat-raised-button mat-dialog-close>Cancel</button>
+</mat-dialog-actions>
